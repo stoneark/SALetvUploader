@@ -3,24 +3,32 @@
 SALetvUploader is an easy-to-use Objective-C implementation of uploading video to Letv cloud via [its open API](http://www.letvcloud.com/api/aboutinfo).
 
 ## Usage
-1. Set macro `LETV_USER_UNIQUE` and `LETV_KEY`in `SALetvUploaderConst.h`.
-2. You can enable or disable the log output by setting `LETV_ENABLE_LOG` in `SALetvUploaderConst.h`.
-3. When you need to upload a video, just import `SALetvUploader.h`, implement SALetvUploaderDelegate, then simply call:
+1.Set macro `LETV_USER_UNIQUE` and `LETV_KEY`in `SALetvUploaderConst.h`.
+
+2.You can enable or disable the log output by setting `LETV_ENABLE_LOG` in `SALetvUploaderConst.h`.
+
+3.When you need to upload a video, just import `SALetvUploader.h`, implement SALetvUploaderDelegate, then simply call:
 ```
 [[SALetvUploader sharedInstance] upload:@"filename" videoData:data delegate:self];
 ```
-4. You can use methods of SALetvUploaderDelegate to get the status of uploading:
+
+4.You can use methods of SALetvUploaderDelegate to get the status of uploading:
 ```
 - (void)onUploadStart;
 - (void)onUploadProgressUpdate:(int)progress;
 - (void)onUploadSuccess:(NSString*)videoUnique;
 - (void)onUploadFailure:(NSError*)error;
 ```
-5. Cancel uploading:
+
+5.Cancel uploading:
 ```
 [[SALetvUploader sharedInstance] cancel];
 ```
-6. You can expand functions if you like, for example `- (void)loadVideoList;`.
+
+6.You can expand functions if you like, for example `- (void)loadVideoList;`.
+
+## Limitation
+This project only supplies a basic and easy-to-use uploading currently, transmission resuming at breakpoints not included.
 
 ## License
 
